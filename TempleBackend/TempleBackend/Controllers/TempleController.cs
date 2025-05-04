@@ -1,24 +1,20 @@
 using Microsoft.AspNetCore.Mvc;
+using TempleBackend.Models;
+using TempleBackend.Services;
 
 namespace TempleBackend.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class TempleController : ControllerBase
+    public class TempleController(ITempleService templeService) : ControllerBase
     {
-        [HttpGet]
-        public IActionResult GetTempleInfo()
-        {
-            // 暫時返回示例數據
-            var templeInfo = new
-            {
-                Name = "示例宮廟",
-                Address = "台灣台北市",
-                Phone = "02-12345678",
-                Description = "這是一個示例宮廟的描述"
-            };
 
-            return Ok(templeInfo);
+        [HttpGet]
+        public ApiResponse<Temple> GetTempleInfo()
+        {
+            var temple = templeService.GetTemple();
+
+            return ApiResponse<Temple>.Success(temple);
         }
     }
 } 
