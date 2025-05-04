@@ -3,17 +3,42 @@ using TempleBackend.Models;
 
 namespace TempleBackend.Services;
 
-public class TempleService : ITempleService
+public interface ITempleRepository
+{
+    Temple GetTemple();
+}
+
+public class TempleRepository : ITempleRepository
 {
     public Temple GetTemple()
     {
-        var temple = new Temple
+        return new Temple
         {
-            Name = "示例宮廟",
-            Address = "台灣台北市",
-            Phone = "02-12345678",
-            Description = "這是一個示例宮廟的描述"
+            Name = "Weija Temple",
+            Address = "Kaohsiung City, Taiwan",
+            Phone = "123-456-7890",
+            Description = "A beautiful temple located in Weija.",
+            Deities = new List<Deity>()
+            {
+                new ()
+                {
+                    Id = 0,
+                    Name = "豬八戒",
+                    Title = "天蓬元帥",
+                    Description = "西遊神",
+                }
+            },
+
+
         };
+    }
+}
+
+public class TempleService(ITempleRepository templeRepository) : ITempleService
+{
+    public Temple GetTemple()
+    {
+        var temple = templeRepository.GetTemple();
 
         return temple;
     }

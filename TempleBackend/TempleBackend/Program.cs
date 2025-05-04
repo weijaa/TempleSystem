@@ -6,6 +6,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<ITempleService, TempleService>();
+builder.Services.AddTransient<ITempleRepository, TempleRepository>();
 
 var app = builder.Build();
 
