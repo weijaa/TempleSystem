@@ -33,4 +33,23 @@ bld/
 [Ll]ogs/
 
 # Visual Studio cache/options directory
-.vs/ 
+.vs/
+
+# Vue 3
+TempleFrontend/node_modules/
+TempleFrontend/dist/
+TempleFrontend/.env
+TempleFrontend/.env.*
+TempleFrontend/.vscode/
+TempleFrontend/.idea/
+TempleFrontend/.DS_Store
+TempleFrontend/coverage/
+TempleFrontend/*.log
+TempleFrontend/npm-debug.log*
+TempleFrontend/yarn-debug.log*
+TempleFrontend/yarn-error.log*
+TempleFrontend/.vite/
+TempleFrontend/.vitepress/
+TempleFrontend/.vuepress/
+TempleFrontend/.temp/
+TempleFrontend/.cache/ 
